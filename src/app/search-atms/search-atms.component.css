@@ -1,0 +1,9 @@
+.col-md-4 {
+  background-color: lightslategrey;
+  display: flex;
+  justify-content: center;
+}
+
+.col-md-8 {
+  background-color: #efff82;
+}

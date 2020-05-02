@@ -19,14 +19,14 @@ export class TokenService {
   }
 
   loginAndCacheToken(username: string, password: string) {
-      return this.httpClient.post(
-        tokenUrl,
-        { username, password },
-        { responseType: 'text', headers: httpHeaders }
-      ).toPromise().then((data: string) => {
-        this.cacheToken(data);
-        this.router.navigateByUrl('/search');
-        console.log(data);
+    return this.httpClient.post(
+      tokenUrl,
+      {username, password},
+      {responseType: 'text', headers: httpHeaders}
+    ).toPromise().then((data: string) => {
+      this.cacheToken(data);
+      this.router.navigateByUrl('/search');
+      console.log(data);
     });
   }
 
@@ -52,5 +52,10 @@ export class TokenService {
     } else {
       return false;
     }
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/login');
   }
 }

@@ -7,12 +7,14 @@ import { SearchAtmsComponent } from './search-atms/search-atms.component';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import { LoginComponent } from './components/login/login.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     SearchAtmsComponent,
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AtmService} from '../components/services/atm.service';
+import {map} from 'rxjs/operators';
+import {Atm} from '../model/atm';
 
 @Component({
   selector: 'app-search-atms',
@@ -12,6 +14,7 @@ export class SearchAtmsComponent implements OnInit {
 
   constructor(private atmService: AtmService) {
     this.formGroup = new FormGroup({
+      q: new FormControl(''),
       street: new FormControl(''),
       housenumber: new FormControl(''),
       postalcode: new FormControl(''),
@@ -26,9 +29,12 @@ export class SearchAtmsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // getValuesFromSearchForm() {
-  //   this.formGroup;
-  //   this.atmService.searchAtms(this.formGroup.value);
-  // }
+  getAtms() {
+    this.atmService.getAllAtms().subscribe((data: Atm[]) => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
+  }
 
 }

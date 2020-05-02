@@ -1,60 +1,58 @@
-<html lang="en">
+<app-header></app-header>
+<div class="row" style="height: 100%">
+  <div class="col-md-4">
+    <form [formGroup]="formGroup" (ngSubmit)="getAtms()">
+      <h2 class="text-center">ATM search</h2>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Bootstrap Simple Login Form</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</head>
+      <div class="form-group">
+        <input formControlName="q" type="text" placeholder="">
+      </div>
 
-<body class="body">
-<div class="row">
+      <div class="form-check">
+        <input formControlName="street" type="checkbox" class="form-check-input" name="street">
+        <label style="margin-left: 20px; font-size: 15px"> Street</label>
+      </div>
 
-  <div class="center-block">
+      <div class="form-check">
+        <input formControlName="housenumber" type="checkbox" class="form-check-input" name="house number">
+        <label style="margin-left: 20px; font-size: 15px"> House number</label>
+      </div>
 
-    <div class="login-form">
-      <form [formGroup]="formGroup">
-        <h2 class="text-center">ATM search</h2>
-        <div class="form-group">
-          <input formControlName="street" type="text" class="form-control" placeholder="street" required="required">
-        </div>
-        <div class="form-group">
-          <input formControlName="housenumber" type="text" class="form-control" placeholder="house number" required="required">
-        </div>
-        <div class="form-group">
-          <input formControlName="postalcode" type="text" class="form-control" placeholder="postal code" required="required">
-        </div>
-        <div class="form-group">
-          <input formControlName="city" type="text" class="form-control" placeholder="city" required="required">
-        </div>
-        <div class="form-group">
-          <input formControlName="lat" type="text" class="form-control" placeholder="lat" required="required">
-        </div>
-        <div class="form-group">
-          <input formControlName="lng" type="text" class="form-control" placeholder="lng" required="required">
-        </div>
-        <div class="form-group">
-          <input formControlName="distance" type="text" class="form-control" placeholder="distance" required="required">
-        </div>
-        <div class="form-group">
-          <input formControlName="type" type="text" class="form-control" placeholder="type" required="required">
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">Search</button>
-        </div>
-      </form>
-    </div>
+      <div class="form-check">
+        <input formControlName="postalcode" type="checkbox" class="form-check-input" name="postal code">
+        <label style="margin-left: 20px; font-size: 15px"> Postal code</label>
+      </div>
 
+      <div class="form-check">
+        <input formControlName="city" type="checkbox" class="form-check-input" name="city">
+        <label style="margin-left: 20px; font-size: 15px"> City</label>
+      </div>
+
+      <div class="form-check">
+        <input formControlName="lat" type="checkbox" class="form-check-input" name="lat">
+        <label style="margin-left: 20px; font-size: 15px"> Latitude</label>
+      </div>
+
+      <div class="form-check">
+        <input formControlName="lng" type="checkbox" class="form-check-input" name="lng">
+        <label style="margin-left: 20px; font-size: 15px"> Longitude</label>
+      </div>
+
+      <div class="form-check">
+        <input formControlName="distance" type="checkbox" class="form-check-input" name="distance">
+        <label style="margin-left: 20px; font-size: 15px"> Distance</label>
+      </div>
+
+      <div class="form-check">
+        <input formControlName="type" type="checkbox" class="form-check-input" name="type">
+        <label style="margin-left: 20px; font-size: 15px"> Type</label>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Search</button>
+      </div>
+
+    </form>
   </div>
-
+  <div class="col-md-8"></div>
 </div>
-
-</body>
-</html>
