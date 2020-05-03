@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {SearchAtmsComponent} from './search-atms/search-atms.component';
+import {SearchAtmsComponent} from './components/search-atms/search-atms.component';
 import {TokenGuardGuard} from './guards/token-guard.guard';
 import {LoginComponent} from './components/login/login.component';
 

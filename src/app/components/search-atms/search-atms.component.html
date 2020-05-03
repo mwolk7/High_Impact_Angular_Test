@@ -54,5 +54,7 @@
 
     </form>
   </div>
-  <div class="col-md-8"></div>
+  <div class="col-md-8" style="align-items: center; display: flex; flex-direction: column;">
+    <app-atm-info *ngFor="let atm of atmList" [atm]="atm"></app-atm-info>
+  </div>
 </div>
