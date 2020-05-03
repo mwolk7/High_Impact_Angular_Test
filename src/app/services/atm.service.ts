@@ -8,7 +8,7 @@ const httpHeaders = new HttpHeaders({
   Authorization: localStorage.getItem('token')
 });
 
-const atmsUrl = 'http://vps-1575977-x.dattaweb.com:8080/atscom/atms';
+const BASE_URL = 'http://vps-1575977-x.dattaweb.com:8080/atscom/atm';
 
 @Injectable({
   providedIn: 'root',
@@ -18,27 +18,37 @@ export class AtmService {
   constructor(private httpClient: HttpClient) {
   }
 
-  // getAllAtms() {
-  //   console.log(httpHeaders);
-  //   return this.httpClient.get(
-  //     atmsUrl,
-  //     {headers: httpHeaders }
-  //   ).toPromise().then((data: any) => {
-  //     console.log(data);
-  //   });
-  // }
-
+  /**
+   * Null parameter method,
+   * returns all the ATMs available
+   *
+   */
   getAllAtms() {
     return this.httpClient.get(
-      atmsUrl,
-      {headers: httpHeaders }
-    ).pipe(map (response => {
-      console.log(response);
+      BASE_URL.concat('s'),
+      {headers: httpHeaders}
+    ).pipe(map(response => {
       return response;
     }));
   }
 
-  searchAtms(value: string, fields: string) {
-    let endpoint = 'http://vps-1575977-x.dattaweb.com:8080/atscom/atm?q=${value}&fields=${fields}';
+  /**
+   * Method used to search for ATMs
+   * by specific fields, if no parameters
+   * are given, returns the whole list
+   * of ATMs available
+   *
+   * @param searchString
+   * @param fields
+   */
+  searchAtms(searchString: string, fields: string) {
+    if (searchString === '' && fields === '') {
+      this.getAllAtms();
+    // } else {
+    //   return this.httpClient.get(BASE_URL.concat('?q=${value}&fields=${fields}'), {headers: httpHeaders})
+    //     .pipe(map(response => {
+    //       return response;
+    //     }));
+    }
   }
 }

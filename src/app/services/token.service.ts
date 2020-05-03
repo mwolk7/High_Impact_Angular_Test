@@ -18,6 +18,15 @@ export class TokenService {
   constructor(private httpClient: HttpClient, private router: Router) {
   }
 
+  /**
+   * Main method, used to log-in,
+   * validate the user, store token
+   * in cache to maintain the session
+   * within the app
+   *
+   * @param username
+   * @param password
+   */
   loginAndCacheToken(username: string, password: string) {
     return this.httpClient.post(
       tokenUrl,
@@ -26,7 +35,6 @@ export class TokenService {
     ).toPromise().then((data: string) => {
       this.cacheToken(data);
       this.router.navigateByUrl('/search');
-      console.log(data);
     });
   }
 
@@ -41,11 +49,22 @@ export class TokenService {
   //   });
   // }
 
+  /**
+   * Used to cache token and
+   * store user's session
+   *
+   * @param token
+   */
   private cacheToken(token: string) {
     this.token = token;
     localStorage.setItem('token', token);
   }
 
+  /**
+   * Used to validate the user
+   * in the log-in process
+   *
+   */
   validateUser(): boolean {
     if (localStorage.getItem('token')) {
       return true;
@@ -54,6 +73,11 @@ export class TokenService {
     }
   }
 
+  /**
+   * Used to log-out from
+   * the app
+   *
+   */
   logout() {
     localStorage.removeItem('token');
     this.router.navigateByUrl('/login');

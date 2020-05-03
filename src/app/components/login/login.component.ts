@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
 
   populateFormFields() {
     this.formGroup;
-    console.log(this.formGroup.value.username, this.formGroup.value.password);
     this.tokenService.loginAndCacheToken(this.formGroup.value.username, this.formGroup.value.password);
 
     // .pipe(
