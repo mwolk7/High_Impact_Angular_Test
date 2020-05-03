@@ -32,16 +32,10 @@ export class SearchAtmsComponent implements OnInit {
 
   getAtms() {
     this.formGroup;
-    this.atmService.getAllAtms().subscribe((data: Atm[]) => {
+    this.atmService.searchAtms(this.formGroup.value).subscribe((data: Atm[]) => {
       this.atmList = data;
     }, error => {
       console.log(error);
     });
-    // this.atmService.getAllAtms().subscribe((data: Atm[]) => {
-    //   this.atmList = data;
-    // }, error => {
-    //   console.log(error);
-    // });
   }
-
 }

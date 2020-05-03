@@ -16,7 +16,7 @@ import { AtmInfoComponent } from './components/atm-info/atm-info.component';
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    AtmInfoComponent
+    AtmInfoComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
 
-
 const httpHeaders = new HttpHeaders({
   'Content-Type': 'application/json',
   Authorization: localStorage.getItem('token')
@@ -38,17 +37,45 @@ export class AtmService {
    * are given, returns the whole list
    * of ATMs available
    *
-   * @param searchString
-   * @param fields
+   * @param values
    */
-  searchAtms(searchString: string, fields: string) {
-    if (searchString === '' && fields === '') {
-      this.getAllAtms();
-    // } else {
-    //   return this.httpClient.get(BASE_URL.concat('?q=${value}&fields=${fields}'), {headers: httpHeaders})
-    //     .pipe(map(response => {
-    //       return response;
-    //     }));
+  searchAtms(values: any) {
+    if (!values.q) {
+      return this.getAllAtms();
     }
+
+    let searchString = values.q;
+    let fields = '';
+
+    // TODO refactor for better legibility
+    if (values.street) {
+      fields = fields + 'street,';
+    }
+    if (values.housenumber) {
+      fields = fields + 'housenumber,';
+    }
+    if (values.postalcode) {
+      fields = fields + 'postalcode,';
+    }
+    if (values.city) {
+      fields = fields + 'city,';
+    }
+    if (values.lat) {
+      fields = fields + 'lat,';
+    }
+    if (values.lng) {
+      fields = fields + 'lng,';
+    }
+    if (values.type) {
+      fields = fields + 'type,';
+    }
+
+    fields = fields.substring(0, fields.length - 1);
+
+    return this.httpClient.get(BASE_URL.concat(`?q=${searchString}&fields=${fields}`), {headers: httpHeaders})
+      .pipe(map(response => {
+        console.log(BASE_URL.concat(`?q=${searchString}&fields=${fields}`));
+        return response;
+      }));
   }
 }

@@ -1,0 +1,8 @@
+.navbar {
+  justify-content: flex-end;
+}
+
+.btn {
+  background-color: coral;
+  color: #f7f7f7;
+}

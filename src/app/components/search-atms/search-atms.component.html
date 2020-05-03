@@ -10,42 +10,42 @@
 
       <div class="form-check">
         <input formControlName="street" type="checkbox" class="form-check-input" name="street">
-        <label style="margin-left: 20px; font-size: 15px"> Street</label>
+        <label class="labels">Street</label>
       </div>
 
       <div class="form-check">
         <input formControlName="housenumber" type="checkbox" class="form-check-input" name="house number">
-        <label style="margin-left: 20px; font-size: 15px"> House number</label>
+        <label class="labels">House number</label>
       </div>
 
       <div class="form-check">
         <input formControlName="postalcode" type="checkbox" class="form-check-input" name="postal code">
-        <label style="margin-left: 20px; font-size: 15px"> Postal code</label>
+        <label class="labels">Postal code</label>
       </div>
 
       <div class="form-check">
         <input formControlName="city" type="checkbox" class="form-check-input" name="city">
-        <label style="margin-left: 20px; font-size: 15px"> City</label>
+        <label class="labels">City</label>
       </div>
 
       <div class="form-check">
         <input formControlName="lat" type="checkbox" class="form-check-input" name="lat">
-        <label style="margin-left: 20px; font-size: 15px"> Latitude</label>
+        <label class="labels">Latitude</label>
       </div>
 
       <div class="form-check">
         <input formControlName="lng" type="checkbox" class="form-check-input" name="lng">
-        <label style="margin-left: 20px; font-size: 15px"> Longitude</label>
+        <label class="labels">Longitude</label>
       </div>
 
       <div class="form-check">
         <input formControlName="distance" type="checkbox" class="form-check-input" name="distance">
-        <label style="margin-left: 20px; font-size: 15px"> Distance</label>
+        <label class="labels">Distance</label>
       </div>
 
       <div class="form-check">
         <input formControlName="type" type="checkbox" class="form-check-input" name="type">
-        <label style="margin-left: 20px; font-size: 15px"> Type</label>
+        <label class="labels">Type</label>
       </div>
 
       <div class="form-group">
@@ -54,7 +54,7 @@
 
     </form>
   </div>
-  <div class="col-md-8" style="align-items: center; display: flex; flex-direction: column;">
+  <div class="col-md-8">
     <app-atm-info *ngFor="let atm of atmList" [atm]="atm"></app-atm-info>
   </div>
 </div>

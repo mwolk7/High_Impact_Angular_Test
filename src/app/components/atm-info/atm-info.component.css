@@ -1,0 +1,10 @@
+.card {
+  width: 24rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: slategrey;
+}
+
+.list-group-item {
+  font-weight: bold;
+}

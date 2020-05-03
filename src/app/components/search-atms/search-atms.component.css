@@ -6,4 +6,12 @@
 
 .col-md-8 {
   background-color: #efff82;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.labels {
+  margin-left: 20px;
+  font-size: 15px;
 }
