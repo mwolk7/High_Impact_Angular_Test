@@ -1,16 +1,16 @@
 import {Injectable} from '@angular/core';
 import {CanActivate, Router} from '@angular/router';
-import {TokenService} from '../providers/token.service';
+import {LoginService} from '../providers/login.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TokenGuardGuard implements CanActivate {
-  constructor(private tokenService: TokenService, private router: Router) {
+export class TokenGuard implements CanActivate {
+  constructor(private loginService: LoginService, private router: Router) {
   }
 
   canActivate(): boolean {
-    if (this.tokenService.validateUser()) {
+    if (this.loginService.validateUser()) {
       return true;
     } else {
       this.router.navigateByUrl('/login');

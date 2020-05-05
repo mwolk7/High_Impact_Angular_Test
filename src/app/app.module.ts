@@ -9,6 +9,7 @@ import {AppComponent} from './app.component';
 import { LoginComponent } from './screens/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AtmInfoComponent } from './components/atm-info/atm-info.component';
+import {ApiService} from './providers/api.service';
 
 @NgModule({
   declarations: [
@@ -25,9 +26,9 @@ import { AtmInfoComponent } from './components/atm-info/atm-info.component';
     FormsModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [
-    AppComponent
+    AppComponent,
   ]
 })
 export class AppModule { }
