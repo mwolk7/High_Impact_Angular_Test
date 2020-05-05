@@ -1,13 +1,12 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
+import {BASE_URL} from '../config/env.settings';
 
 const httpHeaders = new HttpHeaders({
   'Content-Type': 'application/json',
   Authorization: localStorage.getItem('token')
 });
-
-const BASE_URL = 'http://vps-1575977-x.dattaweb.com:8080/atscom/atm';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +23,7 @@ export class AtmService {
    */
   getAllAtms() {
     return this.httpClient.get(
-      BASE_URL.concat('s'),
+      BASE_URL.concat('/atms'),
       {headers: httpHeaders}
     ).pipe(map(response => {
       return response;
@@ -47,7 +46,22 @@ export class AtmService {
     let searchString = values.q;
     let fields = '';
 
-    // TODO refactor for better legibility
+    // TODO refactor for better legibility and cleaner code
+    if (!values.street &&
+      !values.housenumber &&
+      !values.postalcode &&
+      !values.city &&
+      !values.lat &&
+      !values.lng &&
+      !values.type) {
+      return this.httpClient.get(
+        BASE_URL.concat(`/atm?q=${searchString}&fields=street,housenumber,postalcode,city,lat,lng,distance,type`),
+        {headers: httpHeaders})
+        .pipe(map(response => {
+          return response;
+        }));
+    }
+
     if (values.street) {
       fields = fields + 'street,';
     }
@@ -72,7 +86,7 @@ export class AtmService {
 
     fields = fields.substring(0, fields.length - 1);
 
-    return this.httpClient.get(BASE_URL.concat(`?q=${searchString}&fields=${fields}`), {headers: httpHeaders})
+    return this.httpClient.get(BASE_URL.concat(`/atm?q=${searchString}&fields=${fields}`), {headers: httpHeaders})
       .pipe(map(response => {
         console.log(BASE_URL.concat(`?q=${searchString}&fields=${fields}`));
         return response;

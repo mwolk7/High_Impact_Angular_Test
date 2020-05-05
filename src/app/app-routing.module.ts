@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {SearchAtmsComponent} from './components/search-atms/search-atms.component';
+import {SearchAtmsComponent} from './screens/search-atms/search-atms.component';
 import {TokenGuardGuard} from './guards/token-guard.guard';
-import {LoginComponent} from './components/login/login.component';
+import {LoginComponent} from './screens/login/login.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},

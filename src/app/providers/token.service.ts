@@ -1,7 +1,7 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import {map} from 'rxjs/operators';
+import {BASE_URL} from '../config/env.settings';
 
 const httpHeaders = new HttpHeaders({
   'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export class TokenService {
    */
   loginAndCacheToken(username: string, password: string) {
     return this.httpClient.post(
-      tokenUrl,
+      BASE_URL.concat('/login'),
       {username, password},
       {responseType: 'text', headers: httpHeaders}
     ).toPromise().then((data: string) => {
