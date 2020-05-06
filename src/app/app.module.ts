@@ -8,7 +8,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import { LoginComponent } from './screens/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AtmInfoComponent } from './components/atm-info/atm-info.component';
 import {ApiService} from './providers/api.service';
 
 @NgModule({
@@ -17,7 +16,6 @@ import {ApiService} from './providers/api.service';
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    AtmInfoComponent,
   ],
   imports: [
     BrowserModule,
