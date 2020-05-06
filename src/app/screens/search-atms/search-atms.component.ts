@@ -14,6 +14,9 @@ export class SearchAtmsComponent implements OnInit {
   atmList: Atm[];
 
   constructor(private atmService: AtmService) {
+  }
+
+  ngOnInit(): void {
     this.formGroup = new FormGroup({
       q: new FormControl(''),
       street: new FormControl(''),
@@ -25,9 +28,6 @@ export class SearchAtmsComponent implements OnInit {
       distance: new FormControl(''),
       type: new FormControl(''),
     });
-  }
-
-  ngOnInit(): void {
     this.getAtms();
   }
 

@@ -11,13 +11,16 @@ export class LoginComponent implements OnInit {
   formGroup: FormGroup;
 
   constructor(private loginService: LoginService) {
+
+  }
+
+  ngOnInit(): void {
     this.formGroup = new FormGroup({
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
-  }
-
-  ngOnInit(): void {
+    // this.formGroup;
+    this.loginService.loginAndCacheToken(this.formGroup.value.username, this.formGroup.value.password);
   }
 
   populateFormFields() {
