@@ -1,18 +1,16 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import {map} from 'rxjs/operators';
+import {BASE_URL} from '../../environments/environment';
 
 const httpHeaders = new HttpHeaders({
   'Content-Type': 'application/json',
 });
 
-const tokenUrl = 'http://vps-1575977-x.dattaweb.com:8080/atscom/login';
-
 @Injectable({
   providedIn: 'root',
 })
-export class TokenService {
+export class LoginService {
   private token: string;
 
   constructor(private httpClient: HttpClient, private router: Router) {
@@ -29,7 +27,7 @@ export class TokenService {
    */
   loginAndCacheToken(username: string, password: string) {
     return this.httpClient.post(
-      tokenUrl,
+      BASE_URL.concat('/login'),
       {username, password},
       {responseType: 'text', headers: httpHeaders}
     ).toPromise().then((data: string) => {
@@ -65,6 +63,7 @@ export class TokenService {
    * in the log-in process
    *
    */
+  // TODO jwt verify
   validateUser(): boolean {
     if (localStorage.getItem('token')) {
       return true;

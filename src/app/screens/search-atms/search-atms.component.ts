@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {AtmService} from '../../services/atm.service';
+import {AtmService} from '../../providers/atm.service';
 import {map} from 'rxjs/operators';
 import {Atm} from '../../model/atm';
 
@@ -28,6 +28,7 @@ export class SearchAtmsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAtms();
   }
 
   getAtms() {

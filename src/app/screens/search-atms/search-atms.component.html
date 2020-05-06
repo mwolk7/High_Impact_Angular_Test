@@ -1,0 +1,94 @@
+<div class="col-md-12">
+<app-header></app-header>
+
+  <div class="row col-md-10">
+
+    <div class="row1">
+      <form class="row" [formGroup]="formGroup" (ngSubmit)="getAtms()">
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Search</button>
+        </div>
+
+        <div class="form-group">
+          <input formControlName="q" type="text" placeholder="">
+        </div>
+
+        <div class="form-check">
+          <input formControlName="street" type="checkbox" class="form-check-input" name="street">
+          <label class="labels">Street</label>
+        </div>
+
+        <div class="form-check">
+          <input formControlName="housenumber" type="checkbox" class="form-check-input" name="house number">
+          <label class="labels">House number</label>
+        </div>
+
+        <div class="form-check">
+          <input formControlName="postalcode" type="checkbox" class="form-check-input" name="postal code">
+          <label class="labels">Postal code</label>
+        </div>
+
+        <div class="form-check">
+          <input formControlName="city" type="checkbox" class="form-check-input" name="city">
+          <label class="labels">City</label>
+        </div>
+
+        <div class="form-check">
+          <input formControlName="lat" type="checkbox" class="form-check-input" name="lat">
+          <label class="labels">Latitude</label>
+        </div>
+
+        <div class="form-check">
+          <input formControlName="lng" type="checkbox" class="form-check-input" name="lng">
+          <label class="labels">Longitude</label>
+        </div>
+
+        <div class="form-check">
+          <input formControlName="distance" type="checkbox" class="form-check-input" name="distance">
+          <label class="labels">Distance</label>
+        </div>
+
+        <div class="form-check">
+          <input formControlName="type" type="checkbox" class="form-check-input" name="type">
+          <label class="labels">Type</label>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="row2">
+
+      <table style="width:100%">
+
+        <tr style="background-color: silver">
+          <th>Street</th>
+          <th>House Number</th>
+          <th>Postal Code</th>
+          <th>City</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Distance</th>
+          <th>Type</th>
+        </tr>
+
+        <tr *ngFor="let atm of atmList" style="background-color: white">
+          <td>{{atm.address.street}}</td>
+          <td>{{atm.address.housenumber}}</td>
+          <td>{{atm.address.postalcode}}</td>
+          <td>{{atm.address.city}}</td>
+          <td>{{atm.address.geoLocation.lat}}</td>
+          <td>{{atm.address.geoLocation.lng}}</td>
+          <td>{{atm.distance}}</td>
+          <td>{{atm.type}}</td>
+        </tr>
+
+      </table>
+
+
+    </div>
+
+  </div>
+
+</div>

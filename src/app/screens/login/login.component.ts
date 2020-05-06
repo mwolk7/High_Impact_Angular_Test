@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {TokenService} from '../../services/token.service';
+import {LoginService} from '../../providers/login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import {TokenService} from '../../services/token.service';
 export class LoginComponent implements OnInit {
   formGroup: FormGroup;
 
-  constructor(private tokenService: TokenService) {
+  constructor(private loginService: LoginService) {
     this.formGroup = new FormGroup({
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   populateFormFields() {
     this.formGroup;
-    this.tokenService.loginAndCacheToken(this.formGroup.value.username, this.formGroup.value.password);
+    this.loginService.loginAndCacheToken(this.formGroup.value.username, this.formGroup.value.password);
 
     // .pipe(
     // map((token) => console.log(token)));
