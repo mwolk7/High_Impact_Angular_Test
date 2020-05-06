@@ -1,17 +1,57 @@
-.col-md-4 {
-  background-color: lightslategrey;
-  display: flex;
+.col-md-12 {
+  background-color: whitesmoke;
+  height: 100%;
   justify-content: center;
+  display: flex;
 }
 
-.col-md-8 {
-  background-color: #efff82;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+.col-md-10 {
+  height: 500px;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.btn {
+  margin-right: 20px;
 }
 
 .labels {
-  margin-left: 20px;
-  font-size: 15px;
+  padding-left: 15px;
+  padding-top: 2px;
+  font-weight: normal;
+  text-align: right;
+}
+
+.form-check-input {
+  padding-right: 20px;
+}
+
+.row1 {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding-top: 7px;
+  background-color: white;
+  width: 100%;
+  height: 45px;
+  margin-top: 10px;
+}
+
+.row2 {
+  justify-content: center;
+  display: flex;
+  background-color: white;
+  width: 100%;
+  height: 80%;
+  overflow:auto;
+}
+
+.form-group {
+  margin-left: 15px;
+}
+
+.table, tr, td, th {
+  border: 2px solid #dddddd;
+  text-align: left;
+  padding: 7px;
 }

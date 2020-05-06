@@ -28,6 +28,7 @@ export class SearchAtmsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAtms();
   }
 
   getAtms() {

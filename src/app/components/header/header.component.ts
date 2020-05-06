@@ -8,10 +8,12 @@ import {LoginService} from '../../providers/login.service';
 })
 export class HeaderComponent implements OnInit {
 
+  userLoggedIn: boolean;
   constructor(private loginService: LoginService) {
   }
 
   ngOnInit(): void {
+    this.userLoggedIn = this.loginService.validateUser();
   }
 
   logout() {

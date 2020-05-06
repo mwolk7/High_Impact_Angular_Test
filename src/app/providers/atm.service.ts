@@ -1,20 +1,13 @@
-import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {map} from 'rxjs/operators';
 import {BASE_URL} from '../../environments/environment';
 import {ApiService} from './api.service';
-
-const httpHeaders = new HttpHeaders({
-  'Content-Type': 'application/json',
-  Authorization: localStorage.getItem('token')
-});
 
 @Injectable({
   providedIn: 'root',
 })
 export class AtmService {
 
-  constructor(private httpClient: HttpClient, public apiService: ApiService) {
+  constructor(public apiService: ApiService) {
   }
 
   /**
@@ -43,10 +36,7 @@ export class AtmService {
     delete values.q;
     let fields = '';
 
-    /**
-     *  used for when search string is provided
-     *  but no search fields are specified
-     */
+    // used for when search string is provided but no search fields are specified
     if (!values.args) {
       return this.apiService.get(BASE_URL, `/atm?q=${searchString}&fields=street,housenumber,postalcode,city,lat,lng,distance,type`);
     }

@@ -63,6 +63,7 @@ export class LoginService {
    * in the log-in process
    *
    */
+  // TODO jwt verify
   validateUser(): boolean {
     if (localStorage.getItem('token')) {
       return true;

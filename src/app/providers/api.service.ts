@@ -1,4 +1,3 @@
-import {BASE_URL} from '../../environments/environment';
 import {map} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
